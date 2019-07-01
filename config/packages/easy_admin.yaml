@@ -1,0 +1,44 @@
+easy_admin:
+    disabled_actions:
+        - show
+        - delete
+    entities:
+        Currency:
+            class: App\Entity\Currency
+        Statistic:
+            class: App\Entity\Statistic
+            search:
+                fields: ['id', 'time', 'unit']
+            new:
+                fields:
+                    -
+                        property: currencyFrom
+                        type: 'easyadmin_autocomplete'
+                        type_options:
+                            required: true
+                            class: 'App\Entity\Currency'
+                    -
+                        property: currencyTo
+                        type: 'easyadmin_autocomplete'
+                        type_options:
+                            required: true
+                            class: 'App\Entity\Currency'
+                    - time
+                    - unit
+
+            edit:
+                fields:
+                    -
+                        property: currencyFrom
+                        type: 'easyadmin_autocomplete'
+                        type_options:
+                            required: true
+                            class: 'App\Entity\Currency'
+                    -
+                        property: currencyTo
+                        type: 'easyadmin_autocomplete'
+                        type_options:
+                            required: true
+                            class: 'App\Entity\Currency'
+                    - time
+                    - unit
