@@ -7,6 +7,7 @@ namespace App\Repository;
 use App\Entity\Statistic;
 use App\Filter\StatisticFilter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\Criteria;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -50,6 +51,9 @@ class StatisticRepository extends ServiceEntityRepository
                 ->setParameter('timeTo', $filter->getTimeTo());
         }
 
-        return $qb->getQuery()->getResult();
+        return $qb
+            ->addOrderBy('s.time', Criteria::ASC)
+            ->getQuery()
+            ->getResult();
     }
 }

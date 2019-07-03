@@ -8,7 +8,7 @@ easy_admin:
         Statistic:
             class: App\Entity\Statistic
             search:
-                fields: ['id', 'time', 'unit']
+                fields: ['id', 'time', 'average']
             new:
                 fields:
                     -
@@ -24,7 +24,7 @@ easy_admin:
                             required: true
                             class: 'App\Entity\Currency'
                     - time
-                    - unit
+                    - average
 
             edit:
                 fields:
@@ -41,4 +41,4 @@ easy_admin:
                             required: true
                             class: 'App\Entity\Currency'
                     - time
-                    - unit
+                    - average

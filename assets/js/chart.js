@@ -96,7 +96,7 @@ $.getJSON(
             name: 'BTC to USD',
             mode: 'USD',
             data: data.map(function (el) {
-                return [el.time * 1000, el.unit];
+                return [el.time * 1000, el.average];
             }),
         });
     }
@@ -109,7 +109,7 @@ $.getJSON(
             name: 'BTC to EUR',
             mode: 'EUR',
             data: data.map(function (el) {
-                return [el.time * 1000, el.unit];
+                return [el.time * 1000, el.average];
             })
         });
     }

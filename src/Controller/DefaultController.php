@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Entity\Currency;
 use App\Filter\StatisticFilter;
 use App\Repository\StatisticRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,6 +43,8 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
+        $this->getDoctrine()->getRepository(Currency::class)->findOneBy(['code' => 'BTC']);
+
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
         ]);

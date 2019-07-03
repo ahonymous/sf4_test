@@ -60,7 +60,7 @@ class StatisticFixtures extends Fixture implements DependentFixtureInterface
                 ->setCurrencyFrom($from)
                 ->setCurrencyTo($to)
                 ->setTime((new \DateTime())->setTimestamp($datum['time']))
-                ->setUnit($datum['close']);
+                ->setAverage((string) $datum['close']);
             $manager->persist($exchange);
         }
     }

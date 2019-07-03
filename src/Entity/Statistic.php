@@ -51,7 +51,7 @@ class Statistic implements \JsonSerializable
      *
      * @ORM\Column(type="decimal", scale=2)
      */
-    private $unit;
+    private $average;
 
     /**
      * @return int|null
@@ -124,19 +124,19 @@ class Statistic implements \JsonSerializable
     /**
      * @return string|null
      */
-    public function getUnit(): ?string
+    public function getAverage(): ?string
     {
-        return $this->unit;
+        return $this->average;
     }
 
     /**
-     * @param float $unit
+     * @param string|null $average
      *
      * @return self
      */
-    public function setUnit(float $unit): self
+    public function setAverage(?string $average): self
     {
-        $this->unit = $unit;
+        $this->average = $average;
 
         return $this;
     }
@@ -148,7 +148,7 @@ class Statistic implements \JsonSerializable
     {
         return [
             'time' => $this->getTime()->getTimestamp(),
-            'unit' => (float) $this->getUnit(),
+            'average' => (float) $this->getAverage(),
             'code' => $this->getCurrencyTo()->getCode(),
         ];
     }
